@@ -1,5 +1,6 @@
 fn main() {
-    exo_1()
+    let pigify = exo_2("ecrire");
+    println!("{}", pigify)
 }
 
 
@@ -25,3 +26,20 @@ fn exo_1(){
 
 }
 
+fn exo_2( mut word : &str)->String{
+
+    let mut chars = word.chars();
+
+    let letter = match chars.next() {
+        Some(c) => c,
+        None => return String::new(),
+    };
+
+    match letter {
+        'a' | 'e' | 'i' | 'o' | 'u' | 'y' =>{
+            format!("l{}muche",word)
+        }
+        _=> format!("l{}{}em",chars.as_str(),letter)
+    }
+
+}
